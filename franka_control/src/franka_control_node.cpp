@@ -11,6 +11,9 @@
 #include <franka_hw/services.h>
 #include <franka_msgs/ErrorRecoveryAction.h>
 #include <ros/ros.h>
+#include <rosconsole_bridge/bridge.h>
+
+REGISTER_ROSCONSOLE_BRIDGE;
 
 using franka_hw::ServiceContainer;
 

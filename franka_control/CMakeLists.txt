@@ -17,6 +17,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   tf
   tf2_msgs
+  rosconsole_bridge
 )
 
 find_package(Franka 0.7.0 REQUIRED)
@@ -34,6 +35,7 @@ catkin_package(
     roscpp
     sensor_msgs
     tf2_msgs
+    rosconsole_bridge
   DEPENDS Franka
 )
 
@@ -95,6 +97,9 @@ target_link_libraries(franka_combined_control_node
 target_include_directories(franka_combined_control_node SYSTEM PUBLIC
   ${catkin_INCLUDE_DIRS}
 )
+
+SET(GCC_NEWDTAGS_LINK_FLAGS "-Wl,--disable-new-dtags")
+SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${GCC_NEWDTAGS_LINK_FLAGS}")
 
 
 ## Installation
